@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 class Solution {
 public:
     int romanToInt(string s) {
@@ -25,6 +21,9 @@ public:
     symbolsComp.insert({ "CM", 900 });
 
     for (auto iter = symbolsComp.begin(); iter != symbolsComp.end(); iter++) {
+        if (s == "")
+            break;
+
         string key = iter->first;
         int index = s.find(key);
         if (index == string::npos)
@@ -34,7 +33,11 @@ public:
 
         s.erase(index, key.length());
     }
+        
     for (auto iter = symbols.begin(); iter != symbols.end(); iter++) {
+        if (s == "")
+            break;
+
         string key = iter->first;
         for (size_t i = 0; i < s.length(); i++) {
             int index = s.find(key);
@@ -50,4 +53,5 @@ public:
 
     return result;
 }
+
 };
