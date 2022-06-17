@@ -7,11 +7,13 @@ int numJewelsInStones(string jewels, string stones) {
 	for (auto iter = jewels.begin(); iter < jewels.end(); iter++) {
 		jewel = *iter;
 
-		for (auto iter = stones.begin(); iter < stones.end(); iter++) {
+		for (auto iter = stones.begin(); iter < stones.end(); ) {
 			if (*iter == jewel) {
-				//stones.erase(iter);
+				stones.erase(iter);
 				cnt++;
+				continue;
 			}
+			iter++;
 		}
 	}
 
