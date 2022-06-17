@@ -3,13 +3,13 @@ public:
 int numJewelsInStones(string jewels, string stones) {
 	int cnt = 0;
 
-	for (auto iter_j = jewels.begin(); iter_j < jewels.end(); iter_j++) {
+	unordered_multimap <char, bool> stonesMap;
+	for (char stone : stones) {
+		stonesMap.insert({ stone, 0 });
+	}
 
-		for (auto iter_s = stones.begin(); iter_s < stones.end(); iter_s++) {
-			if (*iter_s == *iter_j) {
-				cnt++;
-			}
-		}
+	for (char jewel : jewels) {
+		cnt += stonesMap.count(jewel);
 	}
 
 	return cnt;
