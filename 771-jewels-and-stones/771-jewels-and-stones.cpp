@@ -2,18 +2,16 @@ class Solution {
 public:
 int numJewelsInStones(string jewels, string stones) {
 	int cnt = 0;
-	char jewel;
 
-	for (auto iter = jewels.begin(); iter < jewels.end(); iter++) {
-		jewel = *iter;
+	for (auto iter_j = jewels.begin(); iter_j < jewels.end(); iter_j++) {
 
-		for (auto iter = stones.begin(); iter < stones.end(); ) {
-			if (*iter == jewel) {
-				stones.erase(iter);
+		for (auto iter_s = stones.begin(); iter_s < stones.end(); ) {
+			if (*iter_s == *iter_j) {
+				stones.erase(iter_s);
 				cnt++;
 				continue;
 			}
-			iter++;
+			iter_s++;
 		}
 	}
 
